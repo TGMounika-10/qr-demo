@@ -1,16 +1,72 @@
-# React + Vite
+# HoneyChain QR Verification Demo
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A frontend-only honey traceability and batch verification demo built with React, React Router, Tailwind CSS, and QR code generation.
 
-Currently, two official plugins are available:
+## Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+This project demonstrates a mock HoneyChain workflow where:
+- a batch like `HC001` is shown on the admin/demo page
+- a QR code is generated dynamically
+- scanning the QR opens `/verify/HC001`
+- a consumer verification page displays product, origin, certification, quality, journey, and blockchain-simulated status information
 
-## React Compiler
+This is a frontend-only prototype and does not use a real backend, database, blockchain, or authentication.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Features
 
-## Expanding the Oxlint configuration
+- QR code generation using `qrcode.react`
+- Batch verification page with product passport styling
+- Certification and report modal views
+- Responsive design for mobile-first verification flows
+- Static mock data stored in a JavaScript file
+- Vercel-friendly SPA routing configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## Local development
+
+```bash
+npm install
+npm run dev
+```
+
+The app will be available at:
+
+```text
+http://localhost:5173/
+```
+
+## Demo flow
+
+1. Open the homepage at `/`
+2. View the `HC001` batch record
+3. Scan the generated QR code or open the verification page button
+4. Visit `/verify/HC001`
+5. Review batch details, certifications, quality indicators, journey timeline, and simulated blockchain verification
+
+## Production deployment on Vercel
+
+This project includes a `vercel.json` file with SPA rewrites so deep links like `/verify/HC001` work correctly after deployment.
+
+### Deploy steps
+
+1. Push this repo to GitHub
+2. Import the project in Vercel
+3. Use the default Vite configuration
+4. Deploy
+
+## Project structure
+
+```text
+src/
+  components/
+  data/
+  pages/
+  App.jsx
+  main.jsx
+  index.css
+```
+
+## Notes
+
+- Blockchain and certification data are simulated demo data only.
+- The app is designed as a hackathon-ready prototype.
+- All verification is frontend-only and static.
